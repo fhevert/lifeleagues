@@ -1,0 +1,71 @@
+/* General Style */ 
+
+html{
+	width:100%;
+	height:100%;
+}
+
+body {
+	background:#DCDCDC;
+	font-size:100%;
+	margin:0em;
+	padding:0em;
+	width:100%;
+	height:100%;
+}
+
+/* On Top Bar */
+#menubar {
+	margin:0em;
+	padding:0em;
+	display:block;
+	background:#FFFFFF;
+} 
+#menubar ul {
+	margin:0em;
+	padding:0em;
+	display:block;
+}
+#menubar ul li {
+	width:1em;
+	line-height:1em;
+	margin:0em;
+	padding:0em;
+	font-size:4em;
+	display:block;
+	cursor: pointer;
+	text-align: center;
+	border-radius: 2px;
+	background:#EEEEEE;
+}
+
+#menubar ul li:hover{
+	background: grey;
+	color: white;
+}
+
+
+/* Content Area */ 
+#main {
+	display:block;
+	margin:1.25em auto;
+	padding:0em;
+}
+/* Mobile Style */
+@media screen and (max-width:800px) {
+	body {
+		font-size:90%;
+	}
+}
+
+@media screen and (max-width:550px) {
+	body {
+		font-size:86%;
+	}
+	#menubar ul li a.menubutton {
+		display:block;
+	}	
+	nav {
+		display:none;
+	}
+}

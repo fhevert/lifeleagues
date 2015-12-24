@@ -1,0 +1,11 @@
+<div id="togglemenu" class="sidetogglemenu">
+<ul>
+<li><a href="">Eintrag 1</a></li>
+<li><a href="">Eintrag 2</a>
+<ul>
+<li><a href="">Eintrag 2.1</a></li>
+<li><a href="">Eintrag 2.2</a></li>
+</ul>
+</li>
+</ul>
+</div>
