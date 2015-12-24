@@ -1,8 +1,21 @@
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
-# Eclipse Metadata
+
+# Eclipse project files
 .metadata
+.classpath
+.project
+
+# Android Studio
+*.iml
+.idea
+#.idea/workspace.xml - remove # and delete .idea if it better suit your needs.
+.gradle
+build/
+
+# Android Studio
+.idea
 
 # Folder config file
 Desktop.ini
