@@ -19,8 +19,9 @@ local.properties
 # Android Studio
 .gradle
 /local.properties
-/.idea/workspace.xml
-/.idea/libraries
+.idea/
+*.iml
+*.iws
 .DS_Store
 /build
 
