@@ -20,6 +20,18 @@ body {
 
 /* Icomoon.com */
 
+
+.inhalt {
+	position:relative;
+	display:block;
+	top: 60px;
+	left: 60px;
+	width: 400px;
+  	height: 300px;
+  	border: 1px solid #ccc;
+  	padding: 1em;
+}
+
 .gn-menu-main,
 .gn-menu-main ul {
 		margin: 0;

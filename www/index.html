@@ -7,8 +7,23 @@
     <title>Lifeleagues</title>
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" type="text/css" href="css/normalize.css"/>
-
     <link rel="stylesheet" type="text/css" href="css/component.css"/>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            // Innerhalb der Liste href auslesen und durch # ersetzen, title-Attribut mit dem Wert des href schreiben
+            $("ul.gn-menu a").each(function(){
+                var url = $(this).attr("href");
+                $(this).attr("title",url).attr("href","#");
+            });
+
+            // per Click entsprechende URL in das DIV laden, aber nur das DIV #seiteninhalt
+            $("ul.gn-menu a").click(function(){
+                var quelle = $(this).attr("title");
+                $("#inhalt").load(quelle);
+            });
+        });
+    </script>
     <script src="js/modernizr.custom.js"></script>
 </head>
 <body>
@@ -23,10 +38,10 @@
                             <input placeholder="Search" type="search" class="gn-search">
                             <a class="gn-icon gn-icon-search"><span>Search</span></a>
                         </li>
-                        <li><a class="gn-icon gn-icon-help">Spielpartner finden</a></li>
-                        <li><a class="gn-icon gn-icon-download">keine Ahnung</a></li>
-                        <li><a class="gn-icon gn-icon-archive">Liga</a></li>
-                        <li><a class="gn-icon gn-icon-cog">Settings</a></li>
+                        <li><a id="seite1" href="pages/SpielpartnerFinden.html" class="gn-icon gn-icon-help">Spielpartner finden</a></li>
+                        <li><a id="seite2" class="gn-icon gn-icon-download">keine Ahnung</a></li>
+                        <li><a id="seite3" href="pages/Liga.html" class="gn-icon gn-icon-archive">Liga</a></li>
+                        <li><a id="settings" href="pages/Settings.html" class="gn-icon gn-icon-cog">Settings</a></li>
                     </ul>
                 </div>
                 <!-- /gn-scroller -->
@@ -34,16 +49,13 @@
         </li>
         <li><a>aktuelle Seite</a></li>
     </ul>
-    <header>
-
-    </header>
 </div>
+
 <!-- /container -->
 <script src="js/classie.js"></script>
 <script src="js/gnmenu.js"></script>
 <script>
 			new gnMenu( document.getElementById( 'gn-menu' ) );
-
 </script>
 </body>
 </html>
