@@ -14,24 +14,6 @@
 		src: url("../fonts/ecoicons/ecoicons.eot?#iefix") format("embedded-opentype"), url("../fonts/ecoicons/ecoicons.woff") format("woff"), url("../fonts/ecoicons/ecoicons.ttf") format("truetype"), url("../fonts/ecoicons/ecoicons.svg#ecoicons") format("svg");
 }
 
-body {
-	background: #34495e;
-}
-
-/* Icomoon.com */
-
-
-.inhalt {
-	position:relative;
-	display:block;
-	top: 60px;
-	left: 60px;
-	width: 400px;
-  	height: 300px;
-  	border: 1px solid #ccc;
-  	padding: 1em;
-}
-
 .gn-menu-main,
 .gn-menu-main ul {
 		margin: 0;
