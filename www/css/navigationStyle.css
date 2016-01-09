@@ -14,7 +14,7 @@
 		src: url("../fonts/ecoicons/ecoicons.eot?#iefix") format("embedded-opentype"), url("../fonts/ecoicons/ecoicons.woff") format("woff"), url("../fonts/ecoicons/ecoicons.ttf") format("truetype"), url("../fonts/ecoicons/ecoicons.svg#ecoicons") format("svg");
 }
 
-.gn-menu-main,
+#gn-menu-main,
 .gn-menu {
 		margin: 0;
 		padding: 0;
@@ -78,12 +78,6 @@
 		text-transform: uppercase;
 		letter-spacing: 1px;
 		font-weight: bold;
-}
-
-#gn-menu-main:after {
-		display: table;
-		clear: both;
-		content: "";
 }
 
 .gn-menu-wrapper {
