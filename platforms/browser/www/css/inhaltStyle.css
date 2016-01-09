@@ -6,7 +6,7 @@ body {
 	font-family: 'Lato', Arial, sans-serif;
 	margin:60px auto;
 }
-.inhalt {
+#inhalt {
 		margin-left: auto;
 		margin-right: auto;
 		width: 100%;

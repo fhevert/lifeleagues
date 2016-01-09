@@ -27,41 +27,41 @@
     </script>
     <script src="js/modernizr.custom.js"></script>
 </head>
-<body>
+<body id="body">
+<ul id="gn-menu-main" class="gn-menu">
+    <li class="gn-trigger">
+        <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+    </li>
+    <li><a>aktuelle Seite</a></li>
+</ul>
 <div id="container" class="container">
-    <ul id="gn-menu" class="gn-menu-main">
-        <li class="gn-trigger">
-            <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
-            <nav class="gn-menu-wrapper">
-                <div class="gn-scroller">
-                    <ul class="gn-menu">
-                        <li class="gn-search-item">
-                            <input placeholder="Search" type="search" class="gn-search">
-                            <a class="gn-icon gn-icon-search"><span>Search</span></a>
-                        </li>
-                        <li><a id="seite1" href="pages/SpielpartnerFinden.html" class="gn-icon gn-icon-help">Spielpartner finden</a></li>
-                        <li><a id="seite2" class="gn-icon gn-icon-download">keine Ahnung</a></li>
-                        <li><a id="seite3" href="pages/Liga.html" class="gn-icon gn-icon-archive">Liga</a></li>
-                        <li><a id="settings" href="pages/Settings.html" class="gn-icon gn-icon-cog">Settings</a></li>
-                    </ul>
-                </div>
-                <!-- /gn-scroller -->
-            </nav>
-        </li>
-        <li><a>aktuelle Seite</a></li>
-    </ul>
-    <div id="inhaltRahmen" class="inhaltRahmen">
+    <nav class="gn-menu-wrapper">
+        <div class="gn-scroller">
+            <ul id="gn-menu" class="gn-menu">
+                <li class="gn-search-item">
+                    <input placeholder="Search" type="search" class="gn-search">
+                    <a class="gn-icon gn-icon-search"><span>Search</span></a>
+                </li>
+                <li><a id="seite1" href="pages/SpielpartnerFinden.html" class="gn-icon gn-icon-help">Spielpartner finden</a></li>
+                <li><a id="seite2" class="gn-icon gn-icon-download">keine Ahnung</a></li>
+                <li><a id="seite3" href="pages/Liga.html" class="gn-icon gn-icon-archive">Liga</a></li>
+                <li><a id="settings" href="pages/Settings.html" class="gn-icon gn-icon-cog">Settings</a></li>
+            </ul>
+        </div>
+        <!-- /gn-scroller -->
+    </nav>
+    <section id="inhaltRahmen" class="inhaltRahmen">
         <div id="inhalt" class="inhalt">
             <h1>Lifeleagu.es<span>Finde einen Spielpartner! jetzt <a>suchen</a></span></h1>
         </div>
-    </div>
+    </section>
 </div>
 
 <!-- /container -->
 <script src="js/classie.js"></script>
 <script src="js/gnmenu.js"></script>
 <script>
-			new gnMenu( document.getElementById( 'container' ));
+			new gnMenu( document.getElementById( 'body' ));
 </script>
 </body>
 </html>
