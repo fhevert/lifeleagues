@@ -19,7 +19,7 @@
 		return check;
 	}
 
-	function gnMenu( el, options ) {	
+	function gnMenu( el,options ) {
 		this.el = el;
 		this._init();
 	}
@@ -28,6 +28,7 @@
 		_init : function() {
 			this.trigger = this.el.querySelector( 'a.gn-icon-menu' );
 			this.menu = this.el.querySelector( 'nav.gn-menu-wrapper' );
+			this.inhalt = this.el.querySelector('section.inhaltRahmen');
 			this.isMenuOpen = false;
 			this.eventtype = mobilecheck() ? 'touchstart' : 'click';
 			this._initEvents();
@@ -65,16 +66,20 @@
 			this.menu.addEventListener( this.eventtype, function(ev) { ev.stopPropagation(); } );
 		},
 		_openIconMenu : function() {
+			if( this.isMenuOpen ) return;
 			classie.add( this.menu, 'gn-open-part' );
+			classie.add( this.inhalt, 'gn-open-part' );
 		},
 		_closeIconMenu : function() {
 			classie.remove( this.menu, 'gn-open-part' );
+			classie.remove( this.inhalt, 'gn-open-part' );
 		},
 		_openMenu : function() {
 			if( this.isMenuOpen ) return;
 			classie.add( this.trigger, 'gn-selected' );
 			this.isMenuOpen = true;
 			classie.add( this.menu, 'gn-open-all' );
+			classie.add( this.inhalt, 'gn-open-all' );
 			this._closeIconMenu();
 		},
 		_closeMenu : function() {
@@ -82,6 +87,7 @@
 			classie.remove( this.trigger, 'gn-selected' );
 			this.isMenuOpen = false;
 			classie.remove( this.menu, 'gn-open-all' );
+			classie.remove( this.inhalt, 'gn-open-all' );
 			this._closeIconMenu();
 		}
 	}

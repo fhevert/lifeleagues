@@ -28,7 +28,7 @@
 		_init : function() {
 			this.trigger = this.el.querySelector( 'a.gn-icon-menu' );
 			this.menu = this.el.querySelector( 'nav.gn-menu-wrapper' );
-			this.inhalt = this.el.querySelector('div.inhaltRahmen');
+			this.inhalt = this.el.querySelector('section.inhaltRahmen');
 			this.isMenuOpen = false;
 			this.eventtype = mobilecheck() ? 'touchstart' : 'click';
 			this._initEvents();

@@ -7,43 +7,61 @@
     <title>Lifeleagues</title>
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" type="text/css" href="css/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="css/navigationStyle.css"/>
+    <link rel="stylesheet" type="text/css" href="css/inhaltStyle.css"/>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            // Innerhalb der Liste href auslesen und durch # ersetzen, title-Attribut mit dem Wert des href schreiben
+            $("ul.gn-menu a").each(function(){
+                var url = $(this).attr("href");
+                $(this).attr("title",url).attr("href","#");
+            });
 
-    <link rel="stylesheet" type="text/css" href="css/component.css"/>
+            // per Click entsprechende URL in das DIV laden, aber nur das DIV #seiteninhalt
+            $("ul.gn-menu a").click(function(){
+                var quelle = $(this).attr("title");
+                $("#inhalt").load(quelle);
+            });
+        });
+    </script>
     <script src="js/modernizr.custom.js"></script>
 </head>
-<body>
-<div class="container">
-    <ul id="gn-menu" class="gn-menu-main">
-        <li class="gn-trigger">
-            <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
-            <nav class="gn-menu-wrapper">
-                <div class="gn-scroller">
-                    <ul class="gn-menu">
-                        <li class="gn-search-item">
-                            <input placeholder="Search" type="search" class="gn-search">
-                            <a class="gn-icon gn-icon-search"><span>Search</span></a>
-                        </li>
-                        <li><a class="gn-icon gn-icon-help">Spielpartner finden</a></li>
-                        <li><a class="gn-icon gn-icon-download">keine Ahnung</a></li>
-                        <li><a class="gn-icon gn-icon-archive">Liga</a></li>
-                        <li><a class="gn-icon gn-icon-cog">Settings</a></li>
-                    </ul>
-                </div>
-                <!-- /gn-scroller -->
-            </nav>
-        </li>
-        <li><a>aktuelle Seite</a></li>
-    </ul>
-    <header>
-
-    </header>
+<body id="body">
+<ul id="gn-menu-main" class="gn-menu">
+    <li class="gn-trigger">
+        <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+    </li>
+    <li><a>aktuelle Seite</a></li>
+</ul>
+<div id="container" class="container">
+    <nav class="gn-menu-wrapper">
+        <div class="gn-scroller">
+            <ul id="gn-menu" class="gn-menu">
+                <li class="gn-search-item">
+                    <input placeholder="Search" type="search" class="gn-search">
+                    <a class="gn-icon gn-icon-search"><span>Search</span></a>
+                </li>
+                <li><a id="seite1" href="pages/SpielpartnerFinden.html" class="gn-icon gn-icon-help">Spielpartner finden</a></li>
+                <li><a id="seite2" class="gn-icon gn-icon-download">keine Ahnung</a></li>
+                <li><a id="seite3" href="pages/Liga.html" class="gn-icon gn-icon-archive">Liga</a></li>
+                <li><a id="settings" href="pages/Settings.html" class="gn-icon gn-icon-cog">Settings</a></li>
+            </ul>
+        </div>
+        <!-- /gn-scroller -->
+    </nav>
+    <section id="inhaltRahmen" class="inhaltRahmen">
+        <div id="inhalt" class="inhalt">
+            <h1>Lifeleagu.es<span>Finde einen Spielpartner! jetzt <a>suchen</a></span></h1>
+        </div>
+    </section>
 </div>
+
 <!-- /container -->
 <script src="js/classie.js"></script>
 <script src="js/gnmenu.js"></script>
 <script>
-			new gnMenu( document.getElementById( 'gn-menu' ) );
-
+			new gnMenu( document.getElementById( 'body' ));
 </script>
 </body>
 </html>
