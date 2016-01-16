@@ -16,15 +16,15 @@
     <script type="text/javascript">
         $(document).ready(function(){
             // Innerhalb der Liste href auslesen und durch # ersetzen, title-Attribut mit dem Wert des href schreiben
-            $(".mdl-navigation__link").each(function(){
+            $("nav.mdl-navigation a").each(function(){
                 var url = $(this).attr("href");
                 $(this).attr("title",url).attr("href","#");
             });
 
             // per Click entsprechende URL in das DIV laden, aber nur das DIV #seiteninhalt
-            $(".mdl-navigation__link").click(function(){
+            $("nav.mdl-navigation a").click(function(){
                 var quelle = $(this).attr("title");
-                $(".page-content").load(quelle);
+                $("div.page-content").load(quelle);
             });
         });
     </script>
@@ -85,14 +85,14 @@
                 </div>
             </header>
             <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="">Spielpartner finden</a>
+                <a class="mdl-navigation__link" href="pages/SpielpartnerFinden.html">Spielpartner finden</a>
                 <a class="mdl-navigation__link" href="">keine Ahnung</a>
                 <a class="mdl-navigation__link" href="">Liga</a>
                 <a class="mdl-navigation__link" href="">Settings</a>
             </nav>
         </div>
         <main class="mdl-layout__content">
-            <div class="page-content">
+        <div class="page-content">
 
             </div>
         </main>
