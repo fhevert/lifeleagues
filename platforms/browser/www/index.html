@@ -12,7 +12,6 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="shortcut icon" href="images/favicon.png">
     <script type="text/javascript">
         $(document).ready(function(){
             // Innerhalb der Liste href auslesen und durch # ersetzen, title-Attribut mit dem Wert des href schreiben
@@ -24,6 +23,8 @@
             // per Click entsprechende URL in das DIV laden, aber nur das DIV #seiteninhalt
             $("nav.mdl-navigation a").click(function(){
                 var quelle = $(this).attr("title");
+                var text = $(this).text();
+                $("span.mdl-layout-title").text(text);
                 $("div.page-content").load(quelle);
             });
         });
@@ -85,14 +86,13 @@
                 </div>
             </header>
             <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="pages/SpielpartnerFinden.html">Spielpartner finden</a>
-                <a class="mdl-navigation__link" href="">keine Ahnung</a>
-                <a class="mdl-navigation__link" href="">Liga</a>
-                <a class="mdl-navigation__link" href="">Settings</a>
+                <a class="mdl-navigation__link" menu-close ui-sref="pages/SpielpartnerFinden.html">Spielpartner finden</a>
+                <a class="mdl-navigation__link" href="pages/Liga.html">Liga</a>
+                <a class="mdl-navigation__link" href="pages/Settings.html">Settings</a>
             </nav>
         </div>
         <main class="mdl-layout__content">
-        <div class="page-content">
+            <div class="page-content">
 
             </div>
         </main>
