@@ -23,5 +23,48 @@ angular.module('main', ['ngAnimate', 'ngRoute'])
             });
         }
     };
-});
+})
+.constant('ENDPOINT_URI', 'http://localhost:3000/')
+.service('ItemsModel', function ($http, ENDPOINT_URI) {
+ var service = this,
+    path = 'listUsers';
 
+    function getUrl() {
+      return ENDPOINT_URI + path;
+    }
+
+    function getUrlForId(itemId) {
+      return getUrl(path) + itemId;
+    }
+
+    service.all = function () {
+      return $http.get(getUrl());
+    };
+
+    service.fetch = function (itemId) {
+      return $http.get(getUrlForId(itemId));
+    };
+
+    service.create = function (item) {
+      return $http.post(getUrl(), item);
+    };
+
+    service.update = function (itemId, item) {
+      return $http.put(getUrlForId(itemId), item);
+    };
+
+    service.destroy = function (itemId) {
+      return $http.delete(getUrlForId(itemId));
+    };
+})
+.controller('ArticlesCtrl', function($scope, ItemsModel){
+    var main = this;
+
+    function getItems() {
+      ItemsModel.all()
+        .then(function (result) {
+          $scope.articles = result.data;
+        });
+    }
+    getItems();
+});
