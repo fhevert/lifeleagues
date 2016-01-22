@@ -1,11 +1,19 @@
-var http = require('http');
+var express = require('express');
+var app = express();
+var fs = require("fs");
 
-var server = http.createServer(function (req, res) {
+app.get('/listUsers', function (req, res) {
+   fs.readFile("articles.json", 'utf8', function (err, data) {
+       //res.addHeader("Access-Control-Allow-Origin", "*");
+       res.end( data );
+   });
+})
 
-	res.writeHead(200, {
- 	'content-type': 'text/plain'
- 	});
-	res.write('Hallo Welt!\n');
- 	res.end();
+var server = app.listen(3000, function () {
 
- }).listen(3000)
+  var host = server.address().address
+  var port = server.address().port
+
+  console.log("Example app listening at http://%s:%s", host, port)
+
+})

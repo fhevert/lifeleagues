@@ -1,34 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
-<head>
+<html lang="de" ng-app="main">
+<head ng-app>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="js/modernizr.custom.js"></script>
     <title>Lifeleagues</title>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.js"></script>
-    <link rel="stylesheet" href="mdl/material.min.css">
-    <script src="mdl/material.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-    <script type="text/javascript">
-        $(document).ready(function(){
-            // Innerhalb der Liste href auslesen und durch # ersetzen, title-Attribut mit dem Wert des href schreiben
-            $("nav.mdl-navigation a").each(function(){
-                var url = $(this).attr("href");
-                $(this).attr("title",url).attr("href","#");
-            });
 
-            // per Click entsprechende URL in das DIV laden, aber nur das DIV #seiteninhalt
-            $("nav.mdl-navigation a").click(function(){
-                var quelle = $(this).attr("title");
-                var text = $(this).text();
-                $("span.mdl-layout-title").text(text);
-                $("div.page-content").load(quelle);
-            });
-        });
-    </script>
+    <script src="lib/angularjs/angular.js"></script>
+    <script src="lib/angularjs/angular-animate.js"></script>
+    <script src="lib/angularjs/angular-route.js"></script>
+
+    <link rel="stylesheet" href="lib/mdl/material.min.css">
+    <link rel="stylesheet" href="css/GoogleFonts.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script src="lib/mdl/material.min.js"></script>
+    <script src="js/angularModules.js"></script>
 </head>
 <body>
     <!-- Always shows a header, even in smaller screens. -->
@@ -37,14 +23,9 @@
             <div class="mdl-layout__header-row">
                 <span class="mdl-layout-title">Home</span>
                 <div class="mdl-layout-spacer"></div>
-                <div class="snippet-demo">
+                <div>
                     <div class="container demo-textfield demo-textfield__textfield-expanding">
-                        <style>
-                            .demo-textfield__textfield-expanding .mdl-textfield {
-                            max-width: 195px;
-                            }
-                        </style>
-                        <form action="#">
+                        <form>
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
                                 <div class="mdl-layout-spacer"></div>
                                 <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
@@ -86,15 +67,13 @@
                 </div>
             </header>
             <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" menu-close ui-sref="pages/SpielpartnerFinden.html">Spielpartner finden</a>
-                <a class="mdl-navigation__link" href="pages/Liga.html">Liga</a>
-                <a class="mdl-navigation__link" href="pages/Settings.html">Settings</a>
+                <a class="mdl-navigation__link" menu-close href="#/SpielpartnerFinden">Spielpartner finden</a>
+                <a class="mdl-navigation__link" menu-close href="#/Liga">Liga</a>
+                <a class="mdl-navigation__link" menu-close href="#/Settings">Settings</a>
             </nav>
         </div>
         <main class="mdl-layout__content">
-            <div class="page-content">
-
-            </div>
+            <div ng-view></div>
         </main>
     </div>
 </body>

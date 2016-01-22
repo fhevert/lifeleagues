@@ -61,3 +61,7 @@ html, body {
 .mdl-layout__header .mdl-layout__drawer-button {
     color: rgb(117,117,117);
 }
+
+.demo-textfield__textfield-expanding .mdl-textfield {
+    max-width: 195px;
+}
