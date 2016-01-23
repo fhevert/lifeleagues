@@ -5,6 +5,8 @@ angular.module('main', ['ngAnimate', 'ngRoute'])
     .when('/Liga', { templateUrl: 'pages/Liga.html' })
     .when('/Settings', { templateUrl: 'pages/Settings.html' })
     .when('/SpielpartnerFinden', { templateUrl: 'pages/SpielpartnerFinden.html' })
+    .when('/Anmelden', { templateUrl: 'pages/Anmelden.html' })
+
     .otherwise({ redirectTo: '/' });
 })
 .directive('menuClose', function() {
@@ -24,7 +26,7 @@ angular.module('main', ['ngAnimate', 'ngRoute'])
         }
     };
 })
-.constant('ENDPOINT_URI', 'http://localhost:3000/')
+.constant('ENDPOINT_URI', 'http://192.168.1.24:3000/')
 .service('ItemsModel', function ($http, ENDPOINT_URI) {
  var service = this,
     path = 'listUsers';
@@ -38,6 +40,7 @@ angular.module('main', ['ngAnimate', 'ngRoute'])
     }
 
     service.all = function () {
+        alert($http.get(getUrl()));
       return $http.get(getUrl());
     };
 
