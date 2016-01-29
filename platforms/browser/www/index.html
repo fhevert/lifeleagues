@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" ng-app="main">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,12 +17,12 @@
     <script src="lib/mdl/material.min.js"></script>
     <script src="js/angularModules.js"></script>
 </head>
-<body ng-app="main">
+<body>
     <!-- Always shows a header, even in smaller screens. -->
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <header class="mdl-layout__header mdl-color--grey-300 mdl-color-text--grey-600">
-            <div class="mdl-layout__header-row" ng-controller="HeaderCtrl">
-                <span class="mdl-layout-title" >{{route}}</span>
+            <div class="mdl-layout__header-row" ng-controller="RouteCtrl">
+                <span class="mdl-layout-title">{{route}}</span>
                 <div class="mdl-layout-spacer"></div>
                 <div>
                     <div class="container demo-textfield demo-textfield__textfield-expanding">
@@ -68,7 +68,8 @@
                 </div>
             </header>
             <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" menu-close href="#/SpielpartnerFinden">Spielpartner finden</a>
+                <a class="mdl-navigation__link" menu-close href="#/AktivitaetSuchen">Aktivität suchen</a>
+                <a class="mdl-navigation__link" menu-close href="#/AktivitaetErstellen">Aktivität erstellen</a>
                 <a class="mdl-navigation__link" menu-close href="#/Liga">Liga</a>
                 <a class="mdl-navigation__link" menu-close href="#/Settings">Settings</a>
                 <a class="mdl-navigation__link" menu-close href="#/Anmelden">Anmelden</a>

@@ -4,7 +4,8 @@ main.config(['$routeProvider', function($routeProvider) {
   $routeProvider
     .when('/Liga', { templateUrl: 'pages/Liga.html', controller: 'RouteCtrl'})
     .when('/Settings', { templateUrl: 'pages/Settings.html', controller: 'RouteCtrl'})
-    .when('/SpielpartnerFinden', { templateUrl: 'pages/SpielpartnerFinden.html', controller: 'RouteCtrl'})
+    .when('/AktivitaetSuchen', { templateUrl: 'pages/aktivitaet/AktivitaetSuchen.html', controller: 'RouteCtrl'})
+    .when('/AktivitaetErstellen', { templateUrl: 'pages/aktivitaet/AktivitaetErstellen.html', controller: 'RouteCtrl'})
     .when('/Anmelden', { templateUrl: 'pages/Anmelden.html', controller: 'RouteCtrl'})
     .otherwise({ redirectTo: '/', controller: 'RouteCtrl'});
 }]);
@@ -15,6 +16,7 @@ main.directive('menuClose', function() {
             $element.bind('click', function() {
                 var drawer = angular.element(document.querySelector('.mdl-layout__drawer'));
                 var obfuscator = angular.element(document.querySelector('.mdl-layout__obfuscator'));
+
                 if(drawer) {
                     drawer.toggleClass('is-visible');
                 }
@@ -68,10 +70,14 @@ main.controller('ArticlesCtrl',['$scope', 'ItemsModel', function($scope, ItemsMo
     getItems();
 }]);
 
-main.controller('RouteCtrl',function(){
-    componentHandler.upgradeDom();
-});
-
-main.controller('HeaderCtrl',['$scope', '$location', function($scope, $location){
+main.controller('RouteCtrl',['$scope', '$location', function($scope, $location){
     $scope.route = $location.path();
+    componentHandler.upgradeDom();
+}]);
+
+main.controller('navController', ['$scope', '$location', function($scope, $location){
+
+	$scope.isActive = function(destination){
+		return true;
+	}
 }]);

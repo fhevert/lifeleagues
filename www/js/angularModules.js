@@ -4,9 +4,9 @@ main.config(['$routeProvider', function($routeProvider) {
   $routeProvider
     .when('/Liga', { templateUrl: 'pages/Liga.html', controller: 'RouteCtrl'})
     .when('/Settings', { templateUrl: 'pages/Settings.html', controller: 'RouteCtrl'})
-    .when('/SpielpartnerFinden', { templateUrl: 'pages/SpielpartnerFinden.html', controller: 'RouteCtrl'})
+    .when('/AktivitaetSuchen', { templateUrl: 'pages/aktivitaet/AktivitaetSuchen.html', controller: 'RouteCtrl'})
+    .when('/AktivitaetErstellen', { templateUrl: 'pages/aktivitaet/AktivitaetErstellen.html', controller: 'RouteCtrl'})
     .when('/Anmelden', { templateUrl: 'pages/Anmelden.html', controller: 'RouteCtrl'})
-    .otherwise({ redirectTo: '/', controller: 'RouteCtrl'});
 }]);
 main.directive('menuClose', function() {
     return {
