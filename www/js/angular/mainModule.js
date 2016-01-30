@@ -1,9 +1,9 @@
 define(["./config/angularConfig", "./control/route", "./directive/menuClose"],
-    function(config, routeCtrl, menuclose){
+    function(config, routeCtrl, menuClose){
     'use strict';
 
     var module = angular.module('main', ['ngRoute']);
     module.config(config);
     module.controller('RouteCtrl', routeCtrl);
-    module.directive('menuClose', menuclose);
+    module.directive('menuClose', menuClose);
 });
