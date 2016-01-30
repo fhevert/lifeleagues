@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" data-ng-controller="LoginCtrl">
     <div class="mdl-grid">
         <div class="mdl-cell">
             <img src="images/user.jpg" class="avatar">
@@ -7,7 +7,7 @@
     <div class="mdl-grid">
         <div class="mdl-cell">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" id="user">
+                <input class="mdl-textfield__input" type="text" value="{{user.email}}" id="user">
                 <label class="mdl-textfield__label" for="user">Username:</label>
             </div>
         </div>
@@ -15,9 +15,16 @@
     <div class="mdl-grid">
         <div class="mdl-cell">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" id="password">
+                <input class="mdl-textfield__input" type="password" value="{{user.password}}" id="password">
                 <label class="mdl-textfield__label" for="password">Password:</label>
             </div>
         </div>
     </div>
+    <div class="mdl-grid">
+        <div class="mdl-cell">
+            <button data-ng-click="login(user)">Log In</button>
+        </div>
+    </div>
+
+
 </div>

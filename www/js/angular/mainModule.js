@@ -1,9 +1,11 @@
-define(["./config/angularConfig", "./control/route", "./directive/menuClose"],
-    function(config, routeCtrl, menuClose){
+define(["./config/angularConfig", "./control/route", "./directive/menuClose" , "./control/login"],
+    function(config, routeCtrl, menuClose, login){
     'use strict';
 
-    var module = angular.module('main', ['ngRoute']);
+    var module = angular.module('main', ['ngRoute', 'ngCookies']);
     module.config(config);
     module.controller('RouteCtrl', routeCtrl);
+    module.controller('LoginCtrl', login);
+
     module.directive('menuClose', menuClose);
 });
