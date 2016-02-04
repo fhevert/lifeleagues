@@ -9,7 +9,10 @@
     <script src="lib/angularJs/angular-animate.js"></script>
     <script src="lib/angularJs/angular-route.js"></script>
     <script src="lib/angularJs/angular-cookies.js"></script>
+
     <script src="lib/ngCordova/ng-cordova.js"></script>
+    <script src="lib/ngCordova/ng-cordova-oauth/dist/ng-cordova-oauth.min.js"></script>
+    <script src="cordova.js"></script>
 
     <script src="lib/requireJs/require.js"></script>
 
@@ -54,11 +57,11 @@
                 </ul>
             </div>
         </header>
-        <div class="mdl-layout__drawer">
+        <div class="mdl-layout__drawer" data-ng-controller="LoginCtrl">
             <header class="drawer-header">
-                <img src="images/user.jpg" class="avatar">
+                <img src="{{user.image}}" class="avatar">
                 <div class="avatar-dropdown">
-                    <span>hello@example.com</span>
+                    <span>{{user.id}}</span>
                     <div class="mdl-layout-spacer"></div>
                     <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
                         <i class="material-icons" role="presentation">arrow_drop_down</i>
@@ -76,7 +79,7 @@
                 <a class="mdl-navigation__link" menu-close href="#/AktivitaetErstellen">Aktivität erstellen</a>
                 <a class="mdl-navigation__link" menu-close href="#/Liga">Liga</a>
                 <a class="mdl-navigation__link" menu-close href="#/Settings">Settings</a>
-                <a class="mdl-navigation__link" menu-close href="#/Anmelden">Anmelden</a>
+                <a class="mdl-navigation__link" menu-close href="#/Login">Login</a>
             </nav>
         </div>
         <main class="mdl-layout__content" id="page-content">

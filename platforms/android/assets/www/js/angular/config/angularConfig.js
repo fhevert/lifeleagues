@@ -5,8 +5,8 @@ define([],function(){
        .when('/Settings', { templateUrl: 'pages/Settings.html', controller: 'RouteCtrl'})
        .when('/AktivitaetSuchen', { templateUrl: 'pages/aktivitaet/AktivitaetSuchen.html', controller: 'RouteCtrl'})
        .when('/AktivitaetErstellen', { templateUrl: 'pages/aktivitaet/AktivitaetErstellen.html', controller: 'RouteCtrl'})
-       .when('/Anmelden', { templateUrl: 'pages/Anmelden.html', controller: 'RouteCtrl'})
-       .otherwise({redirectTo: '/home'});
+       .when('/login', { templateUrl: 'pages/Login.html', controller: 'RouteCtrl'})
+       .otherwise({redirectTo: '/login'});
   }
   config.$inject=['$routeProvider'];
 
