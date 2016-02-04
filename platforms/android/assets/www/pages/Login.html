@@ -1,7 +1,14 @@
 <div class="container" data-ng-controller="LoginCtrl">
     <div class="mdl-grid">
         <div class="mdl-cell">
-            <img src="{{user.image}}" class="avatar">
+            <img src="{{user.image}}" class="avatar-login">
+        </div>
+    </div>
+    <div class="mdl-grid">
+        <div class="mdl-cell">
+            <button data-ng-click="loginGoogle()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                Google
+            </button>
         </div>
     </div>
     <div class="mdl-grid">
@@ -9,11 +16,6 @@
             <button data-ng-click="loginFacebook()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
                 Facebook
             </button>
-        </div>
-    </div>
-    <div class="mdl-grid">
-        <div class="mdl-cell">
-            <input class="mdl-textfield__input" type="text" value="{{login.access_token}}">
         </div>
     </div>
 </div>

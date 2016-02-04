@@ -13,11 +13,11 @@ function addFbDataToScope($http, $rootScope)
 
 function loginFacebook($cordovaOauth, $http, $rootScope, $route)
 {
-    $cordovaOauth.facebook("223047374707082", ["email", "public_profile"],{redirect_uri: "http://localhost/callback"} ).then(function(result) {
+    $cordovaOauth.facebook("223047374707082", ["email", "public_profile"]).then(function(result) {
         console.log("Response Object -> " + JSON.stringify(result));
         $rootScope.login = result;
         $rootScope.login.art = 'facebook';
-        localStorage.login = $rootScope.login;
+        localStorage.login = JSON.stringify($rootScope.login);
 
         addFbDataToScope($http, $rootScope);
      }, function(error) {

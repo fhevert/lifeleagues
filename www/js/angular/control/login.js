@@ -7,8 +7,11 @@ define(["./login/facebook"], function(facebook) {
         password: "password123",
         image: "images/user.jpg"
       };
+      if(localStorage.login){
+         $rootScope.login = JSON.parse(localStorage.login);
+      }
 
-      $rootScope.login = {};
+
 
       $scope.loginGoogle = function() {
         $cordovaOauth.google("lifeleagues", ["email"]).then(function(result) {
@@ -19,16 +22,18 @@ define(["./login/facebook"], function(facebook) {
         });
       }
 
-      $scope.logOut = function() {
-        $rootScope.login = {};
-        localStorage.access_token = undefined;
+      $scope.logout = function() {
+        $rootScope.login = null;
+        localStorage.login = null;
+        $scope.$apply()
       }
 
       $scope.loginFacebook = function() {
-        if($rootScope.login.access_token){
+        if($rootScope.login){
           addFbDataToScope($http, $rootScope);
         }else{
           loginFacebook($cordovaOauth, $http, $rootScope, $route);
+          $scope.$apply()
         }
       }
     }
