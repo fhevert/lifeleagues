@@ -19,7 +19,13 @@ html, body {
 }
 
 #page-content  {
- text-align: center;
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle
+}
+
+.page-content{
+
 }
 
 .avatar {
@@ -31,6 +37,7 @@ html, body {
   width: 100px;
   height: 100px;
   border-radius: 50px;
+  margin: 0 auto;
 }
 .drawer-header {
   box-sizing: border-box;
@@ -74,4 +81,8 @@ html, body {
 
 .demo-textfield__textfield-expanding .mdl-textfield {
     max-width: 195px;
+}
+
+.mdl-button{
+    margin: 0 auto;
 }
