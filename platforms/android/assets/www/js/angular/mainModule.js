@@ -4,6 +4,7 @@ define(["./config/angularConfig", "./control/route", "./directive/menuClose" , "
 
     var module = angular.module('main', ['ngRoute', 'ngCordova', 'ngCordovaOauth']);
     module.config(config);
+
     module.controller('RouteCtrl', routeCtrl);
     module.controller('LoginCtrl', login);
 
