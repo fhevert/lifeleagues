@@ -9,6 +9,9 @@
     "installed_plugins": {
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.lifeleagu.es"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.lifeleagu.es"
         }
     },
     "dependent_plugins": {}
