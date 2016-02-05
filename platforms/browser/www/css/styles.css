@@ -18,14 +18,22 @@ html, body {
   font-family: 'Roboto', 'Helvetica', sans-serif;
 }
 
-#page-content  {
-    height: 100%;
-    display: table-cell;
-    vertical-align: middle
+.social-btn {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  opacity: 0.46;
 }
 
-.page-content{
-
+.social-btn__gplus {
+  background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_gplus_black_24dp.png');
+}
+.social-btn__twitter {
+  background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_twitter_black_24dp.png');
+}
+.social-btn__fb {
+  background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_facebook_black_24dp.png');
 }
 
 .avatar {
@@ -34,11 +42,18 @@ html, body {
   border-radius: 24px;
 }
 .avatar-login {
-  width: 100px;
-  height: 100px;
-  border-radius: 50px;
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
   margin: 0 auto;
 }
+.fullWidth{
+  width: 100%;
+}
+.textCenter{
+  text-align: center;
+}
+
 .drawer-header {
   box-sizing: border-box;
   display: -webkit-box;
@@ -81,8 +96,4 @@ html, body {
 
 .demo-textfield__textfield-expanding .mdl-textfield {
     max-width: 195px;
-}
-
-.mdl-button{
-    margin: 0 auto;
 }

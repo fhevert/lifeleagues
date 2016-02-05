@@ -1,15 +1,29 @@
-<div class="container" data-ng-controller="LoginCtrl">
-    <div class="mdl-grid">
+<div class="demo-blog__posts mdl-grid" data-ng-controller="LoginCtrl">
+    <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+        <div class="mdl-card__title mdl-card--expand">
             <img src="{{user.image}}" class="avatar-login">
-    </div>
-    <div class="mdl-grid">
-            <button data-ng-click="loginGoogle()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-                Google
-            </button>
-    </div>
-    <div class="mdl-grid">
-            <button data-ng-click="loginFacebook()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-                Facebook
-            </button>
+        </div>
+        <div class="mdl-card__supporting-text textCenter fullWidth">
+           <h3>
+               Bitte einloggen!
+           </h3>
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+            <table class="fullWidth">
+                <tr>
+                    <td class="textCenter">
+                        <button class="mdl-button mdl-js-button mdl-js-ripple-effect social-btn social-btn__gplus"
+                                data-ng-click="loginGoogle()"/>
+                    </td>
+                    <td class="textCenter">
+                        <button class="mdl-button mdl-js-button mdl-js-ripple-effect social-btn social-btn__fb"
+                                data-ng-click="loginFacebook()"/>
+                    </td>
+                    <td class="textCenter">
+                        <button class="mdl-button mdl-js-button mdl-js-ripple-effect social-btn social-btn__twitter"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
