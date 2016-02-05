@@ -1,11 +1,11 @@
-<div class="demo-blog__posts mdl-grid" data-ng-controller="LoginCtrl">
+<div class="demo-blog__posts mdl-grid">
     <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
         <div class="mdl-card__title mdl-card--expand">
             <img src="{{user.image}}" class="avatar-login">
         </div>
-        <div class="mdl-card__supporting-text textCenter fullWidth">
+        <div class="mdl-card__supporting-text textCenter">
            <h3>
-               Bitte einloggen!
+                Lifeleagu.es
            </h3>
         </div>
         <div class="mdl-card__actions mdl-card--border">
@@ -13,11 +13,11 @@
                 <tr>
                     <td class="textCenter">
                         <button class="mdl-button mdl-js-button mdl-js-ripple-effect social-btn social-btn__gplus"
-                                data-ng-click="loginGoogle()"/>
+                                data-ng-click="login('google')"/>
                     </td>
                     <td class="textCenter">
                         <button class="mdl-button mdl-js-button mdl-js-ripple-effect social-btn social-btn__fb"
-                                data-ng-click="loginFacebook()"/>
+                                data-ng-click="login('facebook')"/>
                     </td>
                     <td class="textCenter">
                         <button class="mdl-button mdl-js-button mdl-js-ripple-effect social-btn social-btn__twitter"/>

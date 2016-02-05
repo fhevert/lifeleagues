@@ -42,9 +42,9 @@ html, body {
   border-radius: 24px;
 }
 .avatar-login {
-  width: 150px;
-  height: 150px;
-  border-radius: 75px;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
   margin: 0 auto;
 }
 .fullWidth{
@@ -88,10 +88,6 @@ html, body {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-}
-
-.mdl-layout__header .mdl-layout__drawer-button {
-    color: rgb(117,117,117);
 }
 
 .demo-textfield__textfield-expanding .mdl-textfield {

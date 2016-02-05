@@ -1,44 +1,56 @@
-define(["./login/facebook"], function(facebook) {
+define(["./login/facebook", "./login/google"], function(facebook, google) {
   "use strict";
-    function LoginCtrl($scope, $rootScope, $cordovaOauth, $http, $route) {
+    function LoginCtrl($scope, $rootScope, $cordovaOauth, $http, $route, $location) {
       // This is only for demo purposes
-      $rootScope.user = {
-        id: "hello@example.com",
-        password: "password123",
-        image: "images/user.jpg"
-      };
-      if(localStorage.login){
-         $rootScope.login = JSON.parse(localStorage.login);
+
+      function getLogin(art){
+      var login;
+        if(art === "google"){
+            login = google;
+        }else if(art === "facebook"){
+            login = facebook;
+        }
+        return login;
       }
 
+      $rootScope.defaultUser = {
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Squash_pictogram.svg/300px-Squash_pictogram.svg.png"
+      };
+      $rootScope.user = $rootScope.defaultUser;
 
-
-      $scope.loginGoogle = function() {
-        $cordovaOauth.google("lifeleagues", ["email"]).then(function(result) {
-        $rootScope.result = JSON.stringify(result);
-           console.log("Response Object -> " + JSON.stringify(result));
-        }, function(error) {
-           console.log("Error -> " + error);
-        });
+      if(localStorage.login){
+         $rootScope.login = JSON.parse(localStorage.login);
+         var login = getLogin($rootScope.login.art);
+         login.addUserDataToScope();
+      }else if(true){
+         $rootScope.login = {
+         access_token: "CAADK3EOJmYoBAJ1baglXZBPyKaKTl1SwvjLnPJovZAtMvJnVg9G0U8jw1A4QrxQK4bZCYT21pS6gdQfhM49SQOlZAmNVwld0Yh9KUux0vxHiiUQapkM6GULV7gAZB0hVJZAUSGuLmTIf88SnkSAKtIBejVOoy9SMGaOnLg0kQ9YlvtXVBmKxI3Uz5HVmFlrkV35DOk6wqBkFOOrNYaPy6xN3WZCjgxsee0ZD",
+         art: "facebook"
+         }
       }
 
       $scope.logout = function() {
-        $rootScope.login = null;
-        localStorage.login = null;
-        $scope.$apply()
+        if($rootScope.login){
+            var login = getLogin($rootscope.login.art);
+            login.logout();
+        }
       }
 
-      $scope.loginFacebook = function() {
+      $scope.login = function(art) {
+        var login = getLogin(art);
         if($rootScope.login){
-          addFbDataToScope($http, $rootScope);
+          login.addUserDataToScope($cordovaOauth, $http, $rootScope, $route, $location);
         }else{
-          loginFacebook($cordovaOauth, $http, $rootScope, $route);
-          $scope.$apply()
+          login.login($cordovaOauth, $http, $rootScope, $route, $location);
         }
+      }
+
+      $scope.isLoginPage = function() {
+        return $location.path() ==="/login";
       }
     }
 
-    LoginCtrl.$inject=['$scope', '$rootScope' , '$cordovaOauth', '$http', '$route'];
+    LoginCtrl.$inject=['$scope', '$rootScope' , '$cordovaOauth', '$http', '$route', '$location'];
 
     return LoginCtrl;
 });

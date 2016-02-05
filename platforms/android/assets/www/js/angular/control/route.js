@@ -1,10 +1,10 @@
 define([], function() {
- function RouteCtrl($scope, $location){
-         $scope.route = $location.path();
+ function RouteCtrl($rootScope, $location){
+         $rootScope.route = $location.path();
          componentHandler.upgradeDom();
   }
 
-  RouteCtrl.$inject=['$scope','$location'];
+  RouteCtrl.$inject=['$rootScope','$location'];
 
   return RouteCtrl;
 });

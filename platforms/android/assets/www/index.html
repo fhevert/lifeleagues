@@ -26,9 +26,9 @@
 </head>
 <body>
     <!-- Always shows a header, even in smaller screens. -->
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <header class="mdl-layout__header mdl-color--grey-300 mdl-color-text--grey-600" ng-show="{{login}}" data-ng-controller="LoginCtrl">
-            <div class="mdl-layout__header-row" ng-controller="RouteCtrl">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" data-ng-controller="LoginCtrl">
+        <header class="mdl-layout__header" ng-hide="isLoginPage()">
+            <div class="mdl-layout__header-row">
                 <span class="mdl-layout-title">{{route}}</span>
                 <div class="mdl-layout-spacer"></div>
                 <div>
@@ -57,11 +57,11 @@
                 </ul>
             </div>
         </header>
-        <div class="mdl-layout__drawer" ng-show="{{login}}" data-ng-controller="LoginCtrl">
+        <div class="mdl-layout__drawer">
             <header class="drawer-header">
                 <img src="{{user.image}}" class="avatar">
                 <div class="avatar-dropdown">
-                    <span>{{user.id}}</span>
+                    <span>{{user.name}}</span>
                     <div class="mdl-layout-spacer"></div>
                     <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
                         <i class="material-icons" role="presentation">arrow_drop_down</i>
@@ -73,11 +73,12 @@
                 </div>
             </header>
             <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" menu-close href="#/AktivitaetSuchen">Aktivität suchen</a>
-                <a class="mdl-navigation__link" menu-close href="#/AktivitaetErstellen">Aktivität erstellen</a>
-                <a class="mdl-navigation__link" menu-close href="#/Liga">Liga</a>
-                <a class="mdl-navigation__link" menu-close href="#/Settings">Settings</a>
-                <a class="mdl-navigation__link" menu-close href="#/Login">Login</a>
+            <a class="mdl-navigation__link" menu-close href="#/Home">Home</a>
+            <a class="mdl-navigation__link" menu-close href="#/AktivitaetSuchen">Aktivität suchen</a>
+            <a class="mdl-navigation__link" menu-close href="#/AktivitaetErstellen">Aktivität erstellen</a>
+            <a class="mdl-navigation__link" menu-close href="#/Liga">Liga</a>
+            <a class="mdl-navigation__link" menu-close href="#/Settings">Settings</a>
+            <a class="mdl-navigation__link" menu-close href="#/Login">Login</a>
             </nav>
         </div>
         <main class="mdl-layout__content" ng-view/>
