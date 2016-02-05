@@ -3,25 +3,27 @@ define([], function() {
     var login = {
         addUserDataToScope: function($cordovaOauth, $http, $rootScope, $route, $location){
             $location.path("/Home");
-            login($cordovaOauth, $http, $rootScope, $route, $location);
+            console.log(this);
+            this.logout($http, $rootScope, $location);
+            $location.path("/Login");
         },
-        login: function($cordovaOauth, $http, $rootScope, $route){
-                $cordovaOauth.google("lifeleagues", ["email", "public_profile"]).then(function(result) {
-                    console.log("Response Object -> " + JSON.stringify(result));
-                    $rootScope.login = result;
-                    $rootScope.login.art = 'facebook';
-                    localStorage.login = JSON.stringify($rootScope.login);
+        login: function($cordovaOauth, $http, $rootScope, $route, $location){
+            $cordovaOauth.google("lifeleagues", ["email", "public_profile"]).then(function(result) {
+                console.log("Response Object -> " + JSON.stringify(result));
+                $rootScope.login = result;
+                $rootScope.login.art = 'facebook';
+                localStorage.login = JSON.stringify($rootScope.login);
 
-                    addUserDataToScope($http, $rootScope);
-                 }, function(error) {
-                     console.log("Error -> " + error);
-                 });
-
+                addUserDataToScope($cordovaOauth, $http, $rootScope, $route, $location);
+             }, function(error) {
+                 console.log("Error -> " + error);
+             });
         },
-        logout: function($http, $rootScope){
-                $rootScope.login = null;
-                $rootScope.user = null;
-                localStorage.removeItem("login");
+        logout: function($http, $rootScope, $location){
+               $rootScope.login = null;
+               $rootScope.user = $rootScope.getDefaultUser();
+               localStorage.removeItem("login");
+               $location.path("/Login");
         }
     }
 

@@ -13,26 +13,31 @@ define(["./login/facebook", "./login/google"], function(facebook, google) {
         return login;
       }
 
-      $rootScope.defaultUser = {
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Squash_pictogram.svg/300px-Squash_pictogram.svg.png"
-      };
-      $rootScope.user = $rootScope.defaultUser;
+      $rootScope.getDefaultUser = function(){
+        return {
+            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Squash_pictogram.svg/300px-Squash_pictogram.svg.png"
+        };
+      }
+
+      $rootScope.user = $rootScope.getDefaultUser();
 
       if(localStorage.login){
          $rootScope.login = JSON.parse(localStorage.login);
          var login = getLogin($rootScope.login.art);
-         login.addUserDataToScope();
+         login.addUserDataToScope($cordovaOauth, $http, $rootScope, $route, $location);
       }else if(true){
          $rootScope.login = {
-         access_token: "CAADK3EOJmYoBAJ1baglXZBPyKaKTl1SwvjLnPJovZAtMvJnVg9G0U8jw1A4QrxQK4bZCYT21pS6gdQfhM49SQOlZAmNVwld0Yh9KUux0vxHiiUQapkM6GULV7gAZB0hVJZAUSGuLmTIf88SnkSAKtIBejVOoy9SMGaOnLg0kQ9YlvtXVBmKxI3Uz5HVmFlrkV35DOk6wqBkFOOrNYaPy6xN3WZCjgxsee0ZD",
-         art: "facebook"
-         }
+             access_token: "CAADK3EOJmYoBAGhykS2F9jxqsyxRktFbzR0kVjSeL0aQs4OKloKY5Sn2YOEMoUSMk5PIOwGUqh1k8blYvDVxrVL47KykSIUX74otIes5HZCgKigMGkQTwZBxZAn4eWvwHEsUef4RL9nUq4jhkP20TvmpDXPxnUcmCaHr5VZC6NRkgXUZAaagZBxhabaWezfvoiFX5m0fgf0UfKYWO5ey7ojLesthZC1lFoZD",
+             art: "facebook"
+         };
+         var login = getLogin($rootScope.login.art);
+         login.addUserDataToScope($cordovaOauth, $http, $rootScope, $route, $location);
       }
 
       $scope.logout = function() {
         if($rootScope.login){
-            var login = getLogin($rootscope.login.art);
-            login.logout();
+            var login = getLogin($rootScope.login.art);
+            login.logout($http, $rootScope, $location);
         }
       }
 
@@ -46,7 +51,7 @@ define(["./login/facebook", "./login/google"], function(facebook, google) {
       }
 
       $scope.isLoginPage = function() {
-        return $location.path() ==="/login";
+        return $location.path() ==="/Login";
       }
     }
 

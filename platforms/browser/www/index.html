@@ -27,7 +27,7 @@
 <body>
     <!-- Always shows a header, even in smaller screens. -->
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" data-ng-controller="LoginCtrl">
-        <header class="mdl-layout__header" ng-hide="isLoginPage()">
+        <header class="mdl-layout__header mdl-color--blue-grey-800" ng-hide="isLoginPage()">
             <div class="mdl-layout__header-row">
                 <span class="mdl-layout-title">{{route}}</span>
                 <div class="mdl-layout-spacer"></div>
@@ -68,7 +68,7 @@
                         <span class="visuallyhidden">Accounts</span>
                     </button>
                     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-                        <li class="mdl-menu__item" data-ng-click="logout()">logout</li>
+                        <li class="mdl-menu__item" menu-close data-ng-click="logout()">logout</li>
                     </ul>
                 </div>
             </header>

@@ -5,7 +5,7 @@ define([],function(){
           // no logged user, redirect to /login
           if ( next.templateUrl === "pages/Login.html") {
           } else {
-            $location.path("/login");
+            $location.path("/Login");
           }
         }
       });

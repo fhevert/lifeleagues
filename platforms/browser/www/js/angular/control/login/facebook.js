@@ -8,7 +8,8 @@ define([], function() {
                 $rootScope.user.id = result.data.id;
                 $location.path("/Home");
             }, function(error) {
-                login($cordovaOauth, $http, $rootScope, $route, $location);
+                console.log(this);
+                login.logout($http, $rootScope);
             });
         },
         login: function($cordovaOauth, $http, $rootScope, $route, $location){
@@ -18,15 +19,16 @@ define([], function() {
                 $rootScope.login.art = 'facebook';
                 localStorage.login = JSON.stringify($rootScope.login);
 
-                addUserDataToScope($http, $rootScope, $location);
+                addUserDataToScope($cordovaOauth, $http, $rootScope, $route, $location);
              }, function(error) {
                  console.log("Error -> " + error);
              });
         },
-        logout: function($http, $rootScope){
+        logout: function($http, $rootScope, $location){
              $rootScope.login = null;
-             $rootScope.user = $rootScope.defaultUser;
+             $rootScope.user = $rootScope.getDefaultUser();
              localStorage.removeItem("login");
+             $location.path("/Login");
         }
     }
 
