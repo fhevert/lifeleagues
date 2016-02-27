@@ -2,7 +2,7 @@ define(["./config/angularConfig", "./control/route", "./directive/menuClose" , "
     function(config, routeCtrl, menuClose, login, runConfig, activities){
     'use strict';
 
-    var module = angular.module('main', ['ngRoute', 'ngCordova', 'ngCordovaOauth', 'firebase']);
+    var module = angular.module('main', ['ngRoute', 'ngCordova', 'firebase']);
     module.config(config);
     module.run(runConfig);
 

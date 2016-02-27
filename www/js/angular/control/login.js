@@ -1,17 +1,8 @@
-define(["./login/facebook", "./login/google"], function(facebook, google) {
+define([], function() {
   "use strict";
-    function LoginCtrl($scope, $rootScope, $cordovaOauth, $http, $route, $location) {
-      // This is only for demo purposes
-
-      function getLogin(art){
-      var login;
-        if(art === "google"){
-            login = google;
-        }else if(art === "facebook"){
-            login = facebook;
-        }
-        return login;
-      }
+    function LoginCtrl($scope, $rootScope, $location, $firebaseAuth) {
+      var usersRef = new Firebase("https://popping-fire-5972.firebaseio.com/users");
+      var Auth = $firebaseAuth(usersRef);
 
       $rootScope.getDefaultUser = function(){
         return {
@@ -19,43 +10,60 @@ define(["./login/facebook", "./login/google"], function(facebook, google) {
         };
       }
 
-      $rootScope.user = $rootScope.getDefaultUser();
+      $rootScope.isAuthenticated = function(){
+           var authData = Auth.$getAuth();
+           if(authData !== null){
+              return true;
+           }else{
+              return false;
+           }
+      }
 
-      if(localStorage.login){
-         $rootScope.login = JSON.parse(localStorage.login);
-         var login = getLogin($rootScope.login.art);
-         login.addUserDataToScope($cordovaOauth, $http, $rootScope, $route, $location);
-      }else if(true){
-         $rootScope.login = {
-             access_token: "CAADK3EOJmYoBAGhykS2F9jxqsyxRktFbzR0kVjSeL0aQs4OKloKY5Sn2YOEMoUSMk5PIOwGUqh1k8blYvDVxrVL47KykSIUX74otIes5HZCgKigMGkQTwZBxZAn4eWvwHEsUef4RL9nUq4jhkP20TvmpDXPxnUcmCaHr5VZC6NRkgXUZAaagZBxhabaWezfvoiFX5m0fgf0UfKYWO5ey7ojLesthZC1lFoZD",
-             art: "facebook"
-         };
-         var login = getLogin($rootScope.login.art);
-         login.addUserDataToScope($cordovaOauth, $http, $rootScope, $route, $location);
+
+      if(!$rootScope.isAuthenticated()){
+            $rootScope.user = $rootScope.getDefaultUser();
       }
 
       $scope.logout = function() {
-        if($rootScope.login){
-            var login = getLogin($rootScope.login.art);
-            login.logout($http, $rootScope, $location);
-        }
+        usersRef.unauth();
+        $rootScope.user = $rootScope.getDefaultUser();
+        $location.path("/Login");
       }
 
       $scope.login = function(art) {
-        var login = getLogin(art);
-        if($rootScope.login){
-          login.addUserDataToScope($cordovaOauth, $http, $rootScope, $route, $location);
-        }else{
-          login.login($cordovaOauth, $http, $rootScope, $route, $location);
+        Auth.$authWithOAuthRedirect(art).then(function(authData) {
+          // User successfully logged in
+        }).catch(function(error) {
+          if (error.code === "TRANSPORT_UNAVAILABLE") {
+            Auth.$authWithOAuthPopup(art).then(function(authData) {
+              console.log(authData);
+            });
+          } else {
+            console.log(error);
+          }
+        });
+      };
+
+      Auth.$onAuth(function(authData) {
+        if (authData !== null) {
+          $location.path("/Home");
+          console.log(authData);
+          var user = {
+             name: authData.facebook.displayName,
+             image: authData.facebook.profileImageURL,
+             id: authData.facebook.id
+          };
+
+          $rootScope.user = user;
         }
-      }
+      });
 
       $scope.isLoginPage = function() {
         return $location.path() ==="/Login";
       }
     }
 
-    LoginCtrl.$inject=['$scope', '$rootScope' , '$cordovaOauth', '$http', '$route', '$location'];
+    LoginCtrl.$inject=['$scope', '$rootScope' , '$location' , '$firebaseAuth'];
 
     return LoginCtrl;
 });

@@ -1,7 +1,7 @@
 define([],function(){
   function run($rootScope, $location) {
       $rootScope.$on( "$routeChangeStart", function(event, next, current) {
-        if ($rootScope.login == null) {
+        if (!$rootScope.isAuthenticated()) {
           // no logged user, redirect to /login
           if ( next.templateUrl === "pages/Login.html") {
           } else {
