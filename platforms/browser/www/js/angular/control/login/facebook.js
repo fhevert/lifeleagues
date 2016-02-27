@@ -19,7 +19,7 @@ define([], function() {
                 $rootScope.login.art = 'facebook';
                 localStorage.login = JSON.stringify($rootScope.login);
 
-                addUserDataToScope($cordovaOauth, $http, $rootScope, $route, $location);
+                login.addUserDataToScope($cordovaOauth, $http, $rootScope, $route, $location);
              }, function(error) {
                  console.log("Error -> " + error);
              });

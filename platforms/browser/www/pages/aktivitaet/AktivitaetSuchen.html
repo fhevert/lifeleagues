@@ -1,1 +1,13 @@
-<h1>Aktivität suchen</h1>
+<div ng-controller="ActivitiesCtrl">
+
+    <h1>Aktivität suchen</h1>
+    <h1 class="title">Items</h1>
+    <button class="button button-icon ion-plus" ng-click="addItem()">button
+    </button>
+    <ul>
+        <li ng-repeat="item in activities">
+            {{item.name}}
+        </li>
+    </ul>
+</div>
+
