@@ -4,31 +4,59 @@ define([], function() {
       var usersRef = new Firebase("https://popping-fire-5972.firebaseio.com/users");
       var Auth = $firebaseAuth(usersRef);
 
-
-      Auth.$onAuth(function(authData) {
-        $rootScope.authData = authData;
-      });
-
-      $scope.logout = function() {
-
+      $rootScope.getDefaultUser = function(){
+        return {
+            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Squash_pictogram.svg/300px-Squash_pictogram.svg.png"
+        };
       }
 
-      $scope.login = function() {
-          Auth.$authWithOAuthRedirect("facebook").then(function(authData) {
-            console.log(authData);
-          }).catch(function(error) {
-            if (error.code === "TRANSPORT_UNAVAILABLE") {
-              Auth.$authWithOAuthPopup("facebook").then(function(authData) {
-                // User successfully logged in. We can log to the console
-                // since we’re using a popup here
-                console.log(authData);
-              });
-            } else {
-              // Another error occurred
-              console.log(error);
-            }
-          });
+      $rootScope.isAuthenticated = function(){
+           var authData = Auth.$getAuth();
+           if(authData !== null){
+              return true;
+           }else{
+              return false;
+           }
+      }
+
+
+      if(!$rootScope.isAuthenticated()){
+            $rootScope.user = $rootScope.getDefaultUser();
+      }
+
+      $scope.logout = function() {
+        usersRef.unauth();
+        $rootScope.user = $rootScope.getDefaultUser();
+        $location.path("/Login");
+      }
+
+      $scope.login = function(art) {
+        Auth.$authWithOAuthRedirect(art).then(function(authData) {
+          // User successfully logged in
+        }).catch(function(error) {
+          if (error.code === "TRANSPORT_UNAVAILABLE") {
+            Auth.$authWithOAuthPopup(art).then(function(authData) {
+              console.log(authData);
+            });
+          } else {
+            console.log(error);
+          }
+        });
       };
+
+      Auth.$onAuth(function(authData) {
+        if (authData !== null) {
+          $location.path("/Home");
+          console.log(authData);
+          var user = {
+             name: authData.facebook.displayName,
+             image: authData.facebook.profileImageURL,
+             id: authData.facebook.id
+          };
+
+          $rootScope.user = user;
+        }
+      });
 
       $scope.isLoginPage = function() {
         return $location.path() ==="/Login";
