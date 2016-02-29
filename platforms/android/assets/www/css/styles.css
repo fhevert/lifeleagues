@@ -17,7 +17,6 @@
 html, body {
   font-family: 'Roboto', 'Helvetica', sans-serif;
 }
-
 .social-btn {
   background-position: center;
   background-size: contain;
@@ -34,6 +33,12 @@ html, body {
 }
 .social-btn__fb {
   background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_facebook_black_24dp.png');
+}
+
+.activityCard{
+  width: 100%;
+  margin: 10px;
+  min-height: 0px;
 }
 
 .avatar {
@@ -92,4 +97,8 @@ html, body {
 
 .demo-textfield__textfield-expanding .mdl-textfield {
     max-width: 195px;
+}
+
+.content{
+    overflow-y: hidden;
 }
