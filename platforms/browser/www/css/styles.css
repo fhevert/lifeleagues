@@ -26,6 +26,11 @@ html, body {
   opacity: 0.46;
 }
 
+.sidePadding{
+   padding-left: 5px;
+   padding-right: 5px;
+}
+
 .social-btn__gplus {
   background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_gplus_black_24dp.png');
 }
@@ -38,7 +43,8 @@ html, body {
 
 .activityCard{
   width: 100%;
-  margin: 10px;
+  margin-top: 5px;
+  margin-bottom:5px;
   min-height: 0px;
 }
 
@@ -98,8 +104,4 @@ html, body {
 
 .demo-textfield__textfield-expanding .mdl-textfield {
     max-width: 195px;
-}
-
-.content{
-    overflow-y: hidden;
 }

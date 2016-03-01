@@ -16,6 +16,7 @@
 
 html, body {
   font-family: 'Roboto', 'Helvetica', sans-serif;
+  overflow: hidden;
 }
 .social-btn {
   background-position: center;
@@ -23,6 +24,11 @@ html, body {
   background-repeat: no-repeat;
   background-color: transparent;
   opacity: 0.46;
+}
+
+.sidePadding{
+   padding-left: 5px;
+   padding-right: 5px;
 }
 
 .social-btn__gplus {
@@ -37,7 +43,8 @@ html, body {
 
 .activityCard{
   width: 100%;
-  margin: 10px;
+  margin-top: 5px;
+  margin-bottom:5px;
   min-height: 0px;
 }
 
@@ -97,8 +104,4 @@ html, body {
 
 .demo-textfield__textfield-expanding .mdl-textfield {
     max-width: 195px;
-}
-
-.content{
-    overflow-y: hidden;
 }

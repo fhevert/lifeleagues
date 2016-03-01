@@ -5,8 +5,7 @@ define([], function() {
        var ref = new Firebase("https://popping-fire-5972.firebaseio.com/activities");
        $scope.activities = $firebaseArray(ref);
 
-        $scope.addItem = function() {
-           var name = prompt("What do you need to buy?");
+        $scope.addItem = function(name) {
            if (name) {
              $scope.activities.$add({
                "name": name

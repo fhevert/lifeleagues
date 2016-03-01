@@ -47,11 +47,10 @@ define([], function() {
       Auth.$onAuth(function(authData) {
         if (authData !== null) {
           $location.path("/Home");
-          console.log(authData);
           var user = {
-             name: authData.facebook.displayName,
-             image: authData.facebook.profileImageURL,
-             id: authData.facebook.id
+             name: authData[authData.provider].displayName,
+             image: authData[authData.provider].profileImageURL,
+             id: authData.uid
           };
 
           $rootScope.user = user;
