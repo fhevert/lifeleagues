@@ -1,1 +1,38 @@
-<h1>aktivität erstellen</h1>
+<div ng-controller="ActivitiesCtrl" class="sidePadding">
+    <div class="activityCard mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">Aktivit&aumlt erstellen</h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="bezeichnung" ng-model="activity.bezeichnung">
+                <label class="mdl-textfield__label" for="bezeichnung">Bezeichnung</label>
+            </div>
+            <br>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="art" ng-model="activity.art">
+                <label class="mdl-textfield__label" for="art">art</label>
+            </div>
+            <br>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="ort" ng-model="activity.attribute.ort">
+                <label class="mdl-textfield__label" for="ort">Ort</label>
+            </div>
+            <br>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="datum" ng-model="activity.attribute.datum">
+                <label class="mdl-textfield__label" for="datum">Datum</label>
+            </div>
+            <br>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="uhrzeit" ng-model="activity.attribute.Uhrzeit">
+                <label class="mdl-textfield__label" for="uhrzeit">Uhrzeit</label>
+            </div>
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+            <a data-ng-click="addItem()" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                erstellen
+            </a>
+        </div>
+    </div>
+</div>

@@ -4,14 +4,14 @@ define([], function() {
     function ActivitiesCtrl($scope, $firebaseArray) {
        var ref = new Firebase("https://popping-fire-5972.firebaseio.com/activities");
        $scope.activities = $firebaseArray(ref);
+       $scope.activity = {};
 
-        $scope.addItem = function(name) {
-           if (name) {
-             $scope.activities.$add({
-               "name": name
-             });
-           }
+        $scope.addItem = function() {
+            ref.push($scope.activity);
          };
+        $scope.removeItem = function(activity) {
+            ref.child(activity.$id).remove();
+        };
     }
 
 

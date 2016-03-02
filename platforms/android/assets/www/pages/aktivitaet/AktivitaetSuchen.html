@@ -1,7 +1,7 @@
 <div ng-controller="ActivitiesCtrl" class="sidePadding">
     <div class="activityCard mdl-card mdl-shadow--2dp" ng-repeat="activity in activities">
         <div class="mdl-card__title">
-            <h2 class="mdl-card__title-text">{{activity.name}}</h2>
+            <h2 class="mdl-card__title-text">{{activity.bezeichnung}}</h2>
         </div>
         <div class="mdl-card__supporting-text">
             <div ng-repeat='(key, prop) in activity.attribute'>
@@ -10,12 +10,12 @@
         </div>
         <div class="mdl-card__actions mdl-card--border">
             <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                Get Started
+                anzeigen
             </a>
         </div>
         <div class="mdl-card__menu">
             <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-                <i class="material-icons">share</i>
+                <i data-ng-click="removeItem(activity)" class="material-icons">delete</i>
             </button>
         </div>
     </div>
