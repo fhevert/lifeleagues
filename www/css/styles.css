@@ -18,6 +18,9 @@ html, body {
   font-family: 'Roboto', 'Helvetica', sans-serif;
   overflow: hidden;
 }
+li{
+    list-style: none
+}
 .social-btn {
   background-position: center;
   background-size: contain;
@@ -64,6 +67,8 @@ html, body {
 }
 .textCenter{
   text-align: center;
+  margin:0px;
+  padding:0px;
 }
 
 .drawer-header {
@@ -104,4 +109,16 @@ html, body {
 
 .demo-textfield__textfield-expanding .mdl-textfield {
     max-width: 195px;
+}
+
+.content{
+  width:100%;
+  height:100%;
+}
+
+.fill_60_100{
+  padding:0px;
+  margin:0px;
+  height:100%;
+  max-width:1000px;
 }
