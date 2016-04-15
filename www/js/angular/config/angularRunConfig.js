@@ -1,5 +1,5 @@
 define([],function(){
-  function run($rootScope, $location) {
+  function run($rootScope, $location, $timeout) {
       $rootScope.$on( "$routeChangeStart", function(event, next, current) {
         if (!$rootScope.isAuthenticated()) {
           // no logged user, redirect to /login
@@ -10,7 +10,7 @@ define([],function(){
         }
       });
     }
-  run.$inject=['$rootScope', '$location'];
+  run.$inject=['$rootScope', '$location', '$timeout'];
 
   return run;
 });

@@ -4,6 +4,12 @@ define([], function() {
     function ActivitiesCtrl($scope, $firebaseArray) {
        var ref = new Firebase("https://popping-fire-5972.firebaseio.com/activities");
        $scope.activities = $firebaseArray(ref);
+
+       var types = new Firebase("https://popping-fire-5972.firebaseio.com/availableActivities");
+       $scope.types = $firebaseArray(types);
+
+       $scope.filter = {};
+
        $scope.activity = {};
 
         $scope.addItem = function() {

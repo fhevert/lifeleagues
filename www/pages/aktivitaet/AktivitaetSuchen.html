@@ -1,4 +1,16 @@
 <div ng-controller="ActivitiesCtrl" class="sidePadding">
+    <div class="avatar-dropdown">
+        <span>{{filter.type}}</span>
+        <div class="mdl-layout-spacer"></div>
+        <button id="actititytype" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">arrow_drop_down</i>
+            <span class="visuallyhidden">Art</span>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="actititytype">
+            <li class="mdl-menu__item" ng-repeat="type in types" data-ng-click="">{{type.art}}</li>
+            <span ng-if="$last" ng-init="update()"></span>
+        </ul>
+    </div>
     <div class="activityCard mdl-card mdl-shadow--2dp" ng-repeat="activity in activities">
         <div class="mdl-card__title">
             <h2 class="mdl-card__title-text">{{activity.bezeichnung}}</h2>
